@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.Properties;
 import java.util.Random;
 
+import com.Constants;
 import kafka.javaapi.producer.Producer;
 import kafka.producer.KeyedMessage;
 import kafka.producer.ProducerConfig;
@@ -15,7 +16,7 @@ public class HelloWorldProducer {
  
         Properties props = new Properties();
         //配置kafka集群的broker地址，建议配置两个以上，以免其中一个失效，但不需要配全，集群会自动查找leader节点。
-        props.put("metadata.broker.list", "172.16.50.21:9092");
+        props.put("metadata.broker.list", Constants.kafka);
         //配置value的序列化类
         //key的序列化类key.serializer.class可以单独配置，默认使用value的序列化类
         props.put("serializer.class", "kafka.serializer.StringEncoder");

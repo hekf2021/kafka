@@ -1,8 +1,11 @@
 package spark.kafka.kafka;
+
+import com.Constants;
+
 public interface KafkaProperties
 {
     //final static String zkConnect = "10.111.134.60:2181";
-    final static String zkConnect = "172.16.50.21:2181";
+    final static String zkConnect = Constants.zookeeper;
     final static String groupId1 = "test-consumer-group";
     final static String groupId2 = "group2";
     final static String topic = "mt02";

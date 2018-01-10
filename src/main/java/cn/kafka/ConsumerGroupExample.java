@@ -1,5 +1,6 @@
 package cn.kafka;
 
+import com.Constants;
 import kafka.consumer.ConsumerConfig;
 import kafka.consumer.KafkaStream;
 import kafka.javaapi.consumer.ConsumerConnector;
@@ -72,7 +73,7 @@ public class ConsumerGroupExample {
 //        String topic = args[2];
 //        int threads = Integer.parseInt(args[3]);
         
-        String zooKeeper = "172.16.50.21:2181";
+        String zooKeeper = Constants.zookeeper;
         String groupId = "test-consumer-group";
         String topic = "page_visits";
         int threads = 5;

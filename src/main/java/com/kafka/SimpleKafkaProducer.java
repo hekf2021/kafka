@@ -1,6 +1,7 @@
 package com.kafka;
 import java.util.Properties;
- 
+
+import com.Constants;
 import kafka.javaapi.producer.Producer;
 import kafka.producer.KeyedMessage;
 import kafka.producer.ProducerConfig;
@@ -26,7 +27,7 @@ public class SimpleKafkaProducer {
      */
     private void execMsgSend() {
         Properties props = new Properties();
-        props.put("metadata.broker.list", "172.16.50.21:9092");
+        props.put("metadata.broker.list", Constants.kafka);
         props.put("serializer.class", "kafka.serializer.StringEncoder");
         props.put("key.serializer.class", "kafka.serializer.StringEncoder");
         props.put("request.required.acks", "0");

@@ -3,6 +3,7 @@ package com.partition;
 import java.util.Properties;
 import java.util.UUID;
 
+import com.Constants;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 
@@ -24,7 +25,7 @@ public class MyProducerA {
 
         //配置
         Properties properties = new Properties();
-        properties.put("bootstrap.servers", "172.16.50.21:9092");
+        properties.put("bootstrap.servers", Constants.kafka);
 
         //序列化类型
         properties.put("value.serializer","org.apache.kafka.common.serialization.StringSerializer");

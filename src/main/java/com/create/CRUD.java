@@ -1,5 +1,6 @@
 package com.create;
 
+import com.Constants;
 import kafka.admin.AdminUtils;
 import kafka.admin.RackAwareMode;
 import kafka.server.ConfigType;
@@ -21,7 +22,7 @@ public class CRUD {
     public static void main(String[] args){
         ZkUtils zkUtils=null;
         try {
-            zkUtils = ZkUtils.apply("172.16.50.21:2181", 30000, 30000, JaasUtils.isZkSecurityEnabled());
+            zkUtils = ZkUtils.apply(Constants.zookeeper, 30000, 30000, JaasUtils.isZkSecurityEnabled());
             createTopic(zkUtils,"mt005");
             //findTopic(zkUtils,"mt003");
             //dropTopic(zkUtils,"mt003");

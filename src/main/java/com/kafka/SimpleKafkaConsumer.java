@@ -4,7 +4,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
- 
+
+import com.Constants;
 import kafka.consumer.Consumer;
 import kafka.consumer.ConsumerConfig;
 import kafka.consumer.ConsumerIterator;
@@ -37,7 +38,7 @@ public class SimpleKafkaConsumer {
      */
     private void execMsgConsume() {
         Properties props = new Properties();
-        props.put("zookeeper.connect", "nnode:2181,dnode1:2181,dnode2:2181");
+        props.put("zookeeper.connect", Constants.zookeeper);
         props.put("group.id", "test-consumer-group");
         props.put("serializer.class", "kafka.serializer.StringEncoder");
          

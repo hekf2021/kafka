@@ -7,6 +7,7 @@ import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import com.Constants;
 import kafka.consumer.Consumer;
 import kafka.consumer.ConsumerConfig;
 import kafka.consumer.KafkaStream;
@@ -29,7 +30,7 @@ public class MyConsumerA {
         //配置文件
         Properties properties = new Properties();
         properties.put("group.id", "lijieGroup");
-        properties.put("zookeeper.connect", "172.16.50.21:2181");
+        properties.put("zookeeper.connect", Constants.zookeeper);
         properties.put("auto.offset.reset", "largest");
         properties.put("auto.commit.interval.ms", "1000");
 

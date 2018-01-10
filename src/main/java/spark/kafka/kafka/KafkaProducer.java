@@ -1,6 +1,7 @@
 package spark.kafka.kafka;
 import java.util.Properties;
 
+import com.Constants;
 import kafka.javaapi.producer.Producer;
 import kafka.producer.KeyedMessage;
 import kafka.producer.ProducerConfig;
@@ -15,7 +16,7 @@ public class KafkaProducer extends Thread
     public KafkaProducer(String topic)
     {
         props.put("serializer.class", "kafka.serializer.StringEncoder");
-        props.put("metadata.broker.list", "172.16.50.21:9092");
+        props.put("metadata.broker.list", Constants.kafka);
         //props.put("group.id", KafkaProperties.groupId1);
         producer = new Producer<Integer, String>(new ProducerConfig(props));
         this.topic = topic;

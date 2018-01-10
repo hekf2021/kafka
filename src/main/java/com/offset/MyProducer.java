@@ -1,6 +1,7 @@
 package com.offset;
 import java.util.Properties;
 
+import com.Constants;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 
@@ -31,7 +32,7 @@ public class MyProducer {
     static {
         //配置
         properties = new Properties();
-        properties.put("bootstrap.servers", "172.16.50.21:9092,172.16.50.22:9092,172.16.50.23:9092");
+        properties.put("bootstrap.servers", Constants.kafka);
         //序列化类型
         properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");

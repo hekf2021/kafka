@@ -3,6 +3,7 @@ import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import com.Constants;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,7 +38,7 @@ public class MyConsume {
     public static void main(String[] args) {
 
         Properties properties = new Properties();
-        properties.put("bootstrap.servers", "172.16.50.21:9092,172.16.50.22:9092,172.16.50.23:9092");
+        properties.put("bootstrap.servers", Constants.kafka);
         //设置不自动提交，自己手动更新offset
         properties.put("enable.auto.commit", "false");
         properties.put("auto.offset.reset", "latest");
@@ -45,7 +46,7 @@ public class MyConsume {
         properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         properties.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         properties.put("group.id", "lijieGroup");
-        properties.put("zookeeper.connect", "172.16.50.21:2181");
+        properties.put("zookeeper.connect", Constants.zookeeper);
         properties.put("auto.commit.interval.ms", "1000");
         ExecutorService executor = Executors.newFixedThreadPool(5);
 
