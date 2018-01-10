@@ -22,7 +22,7 @@ public class CRUD {
         ZkUtils zkUtils=null;
         try {
             zkUtils = ZkUtils.apply("172.16.50.21:2181", 30000, 30000, JaasUtils.isZkSecurityEnabled());
-            //createTopic(zkUtils,"mt004");
+            createTopic(zkUtils,"mt005");
             //findTopic(zkUtils,"mt003");
             //dropTopic(zkUtils,"mt003");
 
@@ -36,7 +36,7 @@ public class CRUD {
 
     public static void createTopic(ZkUtils zkUtils,String topic){
         // 创建一个5区单3副本名为t1的topic
-        AdminUtils.createTopic(zkUtils, topic, 5, 3, new Properties(), RackAwareMode.Enforced$.MODULE$);
+        AdminUtils.createTopic(zkUtils, topic, 3, 1, new Properties(), RackAwareMode.Enforced$.MODULE$);
     }
 
     public static void findTopic(ZkUtils zkUtils,String topic){
