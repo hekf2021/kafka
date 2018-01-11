@@ -30,6 +30,7 @@ public class ConsumerThread implements Runnable {
         //获取当前数据的迭代器
         ConsumerIterator<byte[], byte[]> iterator = stream.iterator();
 
+
         //消费数据
         while (iterator.hasNext()) {
 

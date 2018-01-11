@@ -23,7 +23,7 @@ public class CRUD {
         ZkUtils zkUtils=null;
         try {
             zkUtils = ZkUtils.apply(Constants.zookeeper, 30000, 30000, JaasUtils.isZkSecurityEnabled());
-            createTopic(zkUtils,"mt005");
+            createTopic(zkUtils,"mt008");
             //findTopic(zkUtils,"mt003");
             //dropTopic(zkUtils,"mt003");
 
@@ -37,7 +37,7 @@ public class CRUD {
 
     public static void createTopic(ZkUtils zkUtils,String topic){
         // 创建一个5区单3副本名为t1的topic
-        AdminUtils.createTopic(zkUtils, topic, 3, 1, new Properties(), RackAwareMode.Enforced$.MODULE$);
+        AdminUtils.createTopic(zkUtils, topic, 4, 1, new Properties(), RackAwareMode.Enforced$.MODULE$);
     }
 
     public static void findTopic(ZkUtils zkUtils,String topic){

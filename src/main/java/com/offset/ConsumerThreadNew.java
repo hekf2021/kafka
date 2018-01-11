@@ -60,14 +60,18 @@ public class ConsumerThreadNew implements Runnable {
             ConsumerRecords<String, String> records = consumer.poll(100);
             for (ConsumerRecord<String, String> record : records) {
                 //LOG.info("消费者的名字为:" + name + ",消费的消息为：" + record.value());
-                System.out.println("消费者的名字为:" + name + ",消费的消息为：" + record.value());
+                String topic=record.topic();
+                int partitionNum = record.partition();
+                long offset = record.offset();
+                String message=record.value();
+                System.out.println("topic: " + topic +" consumerName: "+ name +  " ,partitionNum: " + partitionNum + " ,offset: " + offset + " ,message: " + message);
                 buffer.add(record);
             }
             if (buffer.size() >= minBatchSize) {
                 //这里就是处理成功了然后自己手动提交
                 consumer.commitSync();
                 //LOG.info("提交完毕");
-                System.out.println("提交完毕");
+                //System.out.println("提交完毕");
                 buffer.clear();
             }
         }

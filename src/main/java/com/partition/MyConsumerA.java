@@ -25,7 +25,9 @@ public class MyConsumerA {
 
     public static void consumer() {
 
-        String topic = "mt005";
+        String topic = "mt007";
+        int ThreadNum=3;
+
 
         //配置文件
         Properties properties = new Properties();
@@ -48,7 +50,7 @@ public class MyConsumerA {
         Map<String, Integer> map = new HashMap<String, Integer>();
 
         //封装对应消息的的topic和partition个数
-        map.put(topic, 5);
+        map.put(topic, ThreadNum);
 
         //获取partition的流, key为对应的topic名字,value为每个partition的流，这里有三个partiiton所以list里面有三个流
         Map<String, List<KafkaStream<byte[], byte[]>>> createMessageStreams = conn
@@ -58,7 +60,7 @@ public class MyConsumerA {
         List<KafkaStream<byte[], byte[]>> list = createMessageStreams.get(topic);
 
         //用线程池创建3个对应的消费者
-        ExecutorService executor = Executors.newFixedThreadPool(4);
+        ExecutorService executor = Executors.newFixedThreadPool(ThreadNum);
 
         //执行消费
         for (int i = 0; i < list.size(); i++) {

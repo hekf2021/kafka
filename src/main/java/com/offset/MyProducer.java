@@ -42,7 +42,7 @@ public class MyProducer {
     }
 
     public static void main(String[] args) throws Exception {
-        produce("mt004");
+        produce("mt007");
     }
 
     public static void produce(String topic) throws Exception {

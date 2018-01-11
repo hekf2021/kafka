@@ -52,8 +52,7 @@ public class MyConsume {
 
         //执行消费
         for (int i = 0; i < 7; i++) {
-            executor.execute(new ConsumerThreadNew(new KafkaConsumer<String, String>(properties),
-                "mt004", "消费者" + (i + 1)));
+            executor.execute(new ConsumerThreadNew(new KafkaConsumer<String, String>(properties), "mt007", "消费者" + (i + 1)));
         }
     }
 }

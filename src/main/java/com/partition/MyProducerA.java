@@ -21,7 +21,7 @@ public class MyProducerA {
     public static void produce() throws Exception {
 
         //topic
-        String topic = "mt005";
+        String topic = "mt007";
 
         //配置
         Properties properties = new Properties();
